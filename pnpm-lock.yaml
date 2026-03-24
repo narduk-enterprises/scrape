@@ -48,6 +48,25 @@ importers:
         specifier: ^8.0.5
         version: 8.0.5
 
+  apps/scrape-agent:
+    dependencies:
+      '@narduk-enterprises/scrape-contract':
+        specifier: workspace:*
+        version: link:../../packages/scrape-contract
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
+    devDependencies:
+      '@types/node':
+        specifier: ^22.19.13
+        version: 22.19.15
+      tsx:
+        specifier: ^4.21.0
+        version: 4.21.0
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   apps/web:
     dependencies:
       '@narduk-enterprises/eslint-config':
@@ -56,6 +75,9 @@ importers:
       '@narduk-enterprises/narduk-nuxt-template-layer':
         specifier: workspace:*
         version: link:../../layers/narduk-nuxt-layer
+      '@narduk-enterprises/scrape-contract':
+        specifier: workspace:*
+        version: link:../../packages/scrape-contract
       drizzle-orm:
         specifier: ^0.45.1
         version: 0.45.1(@cloudflare/workers-types@4.20260307.1)(@opentelemetry/api@1.9.0)
@@ -251,6 +273,25 @@ importers:
       vitest:
         specifier: ^4.0.18
         version: 4.1.1(@opentelemetry/api@1.9.0)(@types/node@22.19.15)(happy-dom@20.8.7)(vite@7.3.1(@types/node@22.19.15)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+
+  packages/scrape-contract:
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
+
+  packages/scrape-platform:
+    dependencies:
+      '@narduk-enterprises/scrape-contract':
+        specifier: workspace:*
+        version: link:../scrape-contract
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
 packages:
 

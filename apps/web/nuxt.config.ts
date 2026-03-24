@@ -28,6 +28,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    /** Bearer token for scrape-agent workers (Authorization: Bearer …) */
+    scrapeAgentSecret: process.env.SCRAPE_AGENT_SECRET || '',
     posthogOwnerDistinctId: process.env.POSTHOG_OWNER_DISTINCT_ID || '',
     // Server-only (admin API routes)
     googleServiceAccountKey: process.env.GSC_SERVICE_ACCOUNT_JSON || '',

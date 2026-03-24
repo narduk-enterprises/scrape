@@ -24,6 +24,7 @@
     "format:check": "prettier --check \"**/*.{ts,mts,vue,js,mjs,json,yaml,yml,css,md}\" --ignore-path ../../.gitignore"
   },
   "dependencies": {
+    "@narduk-enterprises/scrape-contract": "workspace:*",
     "@narduk-enterprises/narduk-nuxt-template-layer": "workspace:*",
     "@narduk-enterprises/eslint-config": "^1.0.17",
     "drizzle-orm": "^0.45.1",
