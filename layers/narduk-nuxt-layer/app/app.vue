@@ -25,8 +25,8 @@ const navItems = [{ label: 'Home', to: '/', icon: 'i-lucide-home' }]
     <!-- Main Content Container with standard max-w-7xl padding unless overridden by layout -->
     <div
       :class="[
-        'flex-1',
-        route.meta.layout === 'landing' ? '' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full',
+        'flex-1 w-full min-w-0',
+        route.meta.layout === 'landing' ? '' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8',
       ]"
     >
       <NuxtLayout>

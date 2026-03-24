@@ -1,5 +1,8 @@
 import { eq } from 'drizzle-orm'
-import { computeTargetFingerprint, enqueueTargetsBodySchema } from '@narduk-enterprises/scrape-contract'
+import {
+  computeTargetFingerprint,
+  enqueueTargetsBodySchema,
+} from '@narduk-enterprises/scrape-contract'
 import { scrapeSources, scrapeTargets } from '#server/database/app-schema'
 import { useAppDatabase } from '#server/utils/app-database'
 import { SCRAPE_ADMIN_ENQUEUE_RATE_LIMIT } from '#server/utils/scrape-rate-limit'
@@ -51,7 +54,11 @@ export default defineAdminMutation(
           externalKey: t.externalKey,
         }))
 
-      const prior = await db.select().from(scrapeTargets).where(eq(scrapeTargets.fingerprint, fingerprint)).get()
+      const prior = await db
+        .select()
+        .from(scrapeTargets)
+        .where(eq(scrapeTargets.fingerprint, fingerprint))
+        .get()
       if (prior) {
         existing += 1
         await db

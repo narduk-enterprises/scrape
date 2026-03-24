@@ -28,7 +28,9 @@ export default defineEventHandler(async (event) => {
     .innerJoin(scrapeTargets, eq(scrapeObservations.targetId, scrapeTargets.id))
     .innerJoin(scrapeSources, eq(scrapeTargets.sourceId, scrapeSources.id))
 
-  const totalRow = await (sourceKey ? baseCount.where(eq(scrapeSources.key, sourceKey)) : baseCount).get()
+  const totalRow = await (
+    sourceKey ? baseCount.where(eq(scrapeSources.key, sourceKey)) : baseCount
+  ).get()
 
   const baseRows = db
     .select({

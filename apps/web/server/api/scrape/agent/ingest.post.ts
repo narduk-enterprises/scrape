@@ -1,7 +1,8 @@
-import { and, eq } from 'drizzle-orm'
+import { and, eq, inArray } from 'drizzle-orm'
 import { ingestBodySchema } from '@narduk-enterprises/scrape-contract'
 import {
   scrapeAgents,
+  scrapeJobs,
   scrapeObservations,
   scrapeRuns,
   scrapeSources,
@@ -57,7 +58,11 @@ export default defineWebhookMutation(
     let deduped = 0
 
     for (const obs of observations) {
-      let source = await db.select().from(scrapeSources).where(eq(scrapeSources.key, obs.sourceKey)).get()
+      let source = await db
+        .select()
+        .from(scrapeSources)
+        .where(eq(scrapeSources.key, obs.sourceKey))
+        .get()
       if (!source) {
         const sid = crypto.randomUUID()
         await db
@@ -70,7 +75,11 @@ export default defineWebhookMutation(
             createdAt: now,
           })
           .onConflictDoNothing({ target: scrapeSources.key })
-        source = await db.select().from(scrapeSources).where(eq(scrapeSources.key, obs.sourceKey)).get()
+        source = await db
+          .select()
+          .from(scrapeSources)
+          .where(eq(scrapeSources.key, obs.sourceKey))
+          .get()
       }
       if (!source) continue
 
@@ -106,6 +115,22 @@ export default defineWebhookMutation(
           ),
         )
         .get()
+
+      await db
+        .update(scrapeJobs)
+        .set({
+          status: 'completed',
+          leaseExpiresAt: null,
+          assignedAgentId: agent.id,
+          updatedAt: now,
+        })
+        .where(
+          and(
+            eq(scrapeJobs.targetId, target.id),
+            inArray(scrapeJobs.status, ['pending', 'leased']),
+          ),
+        )
+        .run()
 
       if (existingObs) {
         deduped += 1

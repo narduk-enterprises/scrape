@@ -65,12 +65,22 @@ export const scrapeRuns = sqliteTable(
     finishedAt: text('finished_at'),
     status: text('status').notNull(),
     metaJson: text('meta_json'),
+    /** full_crawl | incremental | targeted | retry | manual */
+    runType: text('run_type'),
+    sourceDomain: text('source_domain'),
+    connectorKey: text('connector_key'),
+    recordsCreated: integer('records_created'),
+    recordsUpdated: integer('records_updated'),
+    recordsSkipped: integer('records_skipped'),
+    parseErrorCount: integer('parse_error_count'),
     createdAt: text('created_at')
       .notNull()
       .$defaultFn(() => new Date().toISOString()),
   },
   (t) => ({
     agentIdx: index('scrape_runs_agent_idx').on(t.agentId),
+    domainIdx: index('scrape_runs_domain_idx').on(t.sourceDomain),
+    connectorIdx: index('scrape_runs_connector_idx').on(t.connectorKey),
   }),
 )
 
@@ -95,10 +105,16 @@ export const scrapeObservations = sqliteTable(
       .$defaultFn(() => new Date().toISOString()),
   },
   (t) => ({
-    targetContentUq: uniqueIndex('scrape_observations_target_content_uq').on(t.targetId, t.contentHash),
+    targetContentUq: uniqueIndex('scrape_observations_target_content_uq').on(
+      t.targetId,
+      t.contentHash,
+    ),
     targetObsIdx: index('scrape_observations_target_obs_idx').on(t.targetId, t.observedAt),
   }),
 )
+
+// ── Price Intelligence canonical schema ──────────────────────
+export * from './pi-schema'
 
 /** Optional work queue when you want explicit jobs instead of TTL-only polling */
 export const scrapeJobs = sqliteTable(

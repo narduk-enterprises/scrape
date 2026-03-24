@@ -116,7 +116,7 @@ export const FLEET_ROOT_SCRIPT_PATCHES: Readonly<Record<string, string>> = {
 
 export const FLEET_WEB_SCRIPT_PATCHES: Readonly<Record<string, string>> = {
   predev: 'pnpm run db:ready',
-  dev: '(doppler run -- nuxt dev || nuxt dev)',
+  dev: '(doppler run --scope ../.. -- nuxt dev || nuxt dev)',
   lint: 'eslint . --max-warnings 0',
   quality: "echo 'Turbo dependsOn handles lint + typecheck + format:check'",
 }

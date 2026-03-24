@@ -17,7 +17,12 @@ function authHeaders() {
     const s = secret();
     if (!s)
         throw new Error('SCRAPE_AGENT_SECRET is required');
-    return { Authorization: `Bearer ${s}`, 'Content-Type': 'application/json' };
+    return {
+        Authorization: `Bearer ${s}`,
+        'Content-Type': 'application/json',
+        // Layer CSRF middleware allows API keys (nk_) or this header on mutations.
+        'X-Requested-With': 'XMLHttpRequest',
+    };
 }
 async function heartbeat() {
     const res = await fetch(`${base()}/api/scrape/agent/heartbeat`, {

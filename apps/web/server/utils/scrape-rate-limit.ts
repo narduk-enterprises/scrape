@@ -17,3 +17,9 @@ export const SCRAPE_ADMIN_ENQUEUE_RATE_LIMIT: RateLimitPolicy = {
   maxRequests: 40,
   windowMs: 60_000,
 }
+
+export const SCRAPE_ADMIN_RUN_RATE_LIMIT: RateLimitPolicy = {
+  namespace: 'scrape-admin-run',
+  maxRequests: 40,
+  windowMs: 60_000,
+}

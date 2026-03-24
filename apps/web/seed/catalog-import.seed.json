@@ -1,0 +1,812 @@
+{
+  "schemaVersion": "1",
+  "importedAt": "2026-03-23T00:00:00.000Z",
+  "meta": {
+    "seedSource": "/tmp/products-with-manufacturer.json",
+    "notes": "Curated demo bundle for project-scoped parts catalog imports and competitor scrape seeds."
+  },
+  "projects": [
+    {
+      "externalProjectId": "demo-aaaddbf7-stormwater-service-parts",
+      "slug": "stormwater-service-parts",
+      "name": "Stormwater Service Parts",
+      "description": "Vac truck, sweeper, and chipper service parts carved from the local sample import.",
+      "customerName": "Municipal Fleet Demo",
+      "catalogSource": "/tmp/products-with-manufacturer.json",
+      "defaultCurrency": "USD",
+      "meta": {
+        "rawSourceProjectId": "aaaddbf7-d9b5-493d-994c-37280694dea8",
+        "vertical": "stormwater-maintenance"
+      },
+      "catalogItems": [
+        {
+          "externalItemId": "60ddb915-30b1-4a27-8461-08942dbe0099",
+          "partNumber": "43941L",
+          "manufacturerCode": "VAC",
+          "manufacturerName": "VACTOR MFG",
+          "partDescription": "1-1/4\" BALL VALVE,DRECT FLANGE",
+          "itemType": null
+        },
+        {
+          "externalItemId": "a76b6891-cf88-4841-ab2c-52e066ebc856",
+          "partNumber": "1047327",
+          "manufacturerCode": "ELG",
+          "manufacturerName": "ELGIN SWEEPER CO",
+          "partDescription": "S.B.SEG. SET-POLY/POLY",
+          "itemType": null
+        },
+        {
+          "externalItemId": "85892941-bc92-4117-8213-9ceb476f4899",
+          "partNumber": "900-5908-17",
+          "manufacturerCode": "BAN",
+          "manufacturerName": "BANDIT INDUSTRIES",
+          "partDescription": "8000# DROP LEG JACK WITH SQUARE MOUNT.",
+          "itemType": null
+        },
+        {
+          "externalItemId": "e141c44b-e9ff-4f5c-b460-a40ef6e8c380",
+          "partNumber": "70303C",
+          "manufacturerCode": "VAC",
+          "manufacturerName": "VACTOR MFG",
+          "partDescription": "HAND PUMP ASSY",
+          "itemType": null
+        },
+        {
+          "externalItemId": "b50bb693-c805-4696-a71b-314217150869",
+          "partNumber": "900-5904-52",
+          "manufacturerCode": "BAN",
+          "manufacturerName": "BANDIT INDUSTRIES",
+          "partDescription": "SAFETY MARKERS NOT FLAGS THEY COME IN PA",
+          "itemType": null
+        },
+        {
+          "externalItemId": "32ba8a78-2842-4579-b13a-966a8ed7ce6c",
+          "partNumber": "1045950",
+          "manufacturerCode": "ELG",
+          "manufacturerName": "ELGIN SWEEPER CO",
+          "partDescription": "CONN,PI 90DEG EL-4-2",
+          "itemType": null
+        },
+        {
+          "externalItemId": "1338df82-0ea1-479f-b7f3-c3b46996c4e6",
+          "partNumber": "1097732",
+          "manufacturerCode": "ELG",
+          "manufacturerName": "ELGIN SWEEPER CO",
+          "partDescription": "WLDT-DIRT SHOE LH",
+          "itemType": null
+        },
+        {
+          "externalItemId": "7144e3d1-3b95-4a71-8ebe-468e9034eeef",
+          "partNumber": "904-0001-20",
+          "manufacturerCode": "BAN",
+          "manufacturerName": "BANDIT INDUSTRIES",
+          "partDescription": "NACD Clutch Pak 11.5 Double Disc # 41094",
+          "itemType": null
+        },
+        {
+          "externalItemId": "910bdc94-7eab-4e25-9a56-4ca8356d549a",
+          "partNumber": "900-2911-26",
+          "manufacturerCode": "BAN",
+          "manufacturerName": "BANDIT INDUSTRIES",
+          "partDescription": "12I TRAILER LIGHT CORD (COILED) WITH 6-W",
+          "itemType": null
+        },
+        {
+          "externalItemId": "32f29bcf-35f5-4b04-884f-e7976a6e46ec",
+          "partNumber": "20188N",
+          "manufacturerCode": "VAC",
+          "manufacturerName": "VACTOR MFG",
+          "partDescription": "MALE DISCONNECT X 1/2NPT MALE",
+          "itemType": null
+        },
+        {
+          "externalItemId": "766ba55b-ee23-4e8c-b0f6-7e76db935c62",
+          "partNumber": "7873222",
+          "manufacturerCode": "ELG",
+          "manufacturerName": "ELGIN SWEEPER CO",
+          "partDescription": "SB SEGMENT SET  - (5) 17 WIRE",
+          "itemType": null
+        },
+        {
+          "externalItemId": "a3052649-1ce3-48ea-ac54-c315f8f45637",
+          "partNumber": "900-3920-05A",
+          "manufacturerCode": "BAN",
+          "manufacturerName": "BANDIT INDUSTRIES",
+          "partDescription": "FEEDWHEEL VALVE HEAVY DUTY W/O-RING PORT",
+          "itemType": null
+        }
+      ],
+      "competitors": [
+        {
+          "sourceKey": "grainger",
+          "sourceLabel": "Grainger",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "W.W. Grainger, Inc.",
+            "domain": "grainger.com",
+            "websiteUrl": "https://www.grainger.com",
+            "orgType": "distributor"
+          },
+          "notes": "Industrial distributor exact-part lookups and broader manufacturer queries.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=43941L",
+              "label": "Grainger search for 43941L",
+              "externalKey": "grainger-43941L",
+              "seedType": "search_results",
+              "catalogItemExternalId": "60ddb915-30b1-4a27-8461-08942dbe0099",
+              "searchTerm": "43941L"
+            },
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=20188N",
+              "label": "Grainger search for 20188N",
+              "externalKey": "grainger-20188N",
+              "seedType": "search_results",
+              "catalogItemExternalId": "32f29bcf-35f5-4b04-884f-e7976a6e46ec",
+              "searchTerm": "20188N"
+            },
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=1047327",
+              "label": "Grainger search for 1047327",
+              "externalKey": "grainger-1047327",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a76b6891-cf88-4841-ab2c-52e066ebc856",
+              "searchTerm": "1047327"
+            },
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=VACTOR%20MFG%20service%20parts",
+              "label": "Grainger manufacturer search for VACTOR MFG",
+              "externalKey": "grainger-vactor-mfg-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "VACTOR MFG service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "zoro",
+          "sourceLabel": "Zoro",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "Zoro Tools, Inc.",
+            "domain": "zoro.com",
+            "websiteUrl": "https://www.zoro.com",
+            "orgType": "distributor"
+          },
+          "notes": "Secondary distributor seed set for the same project items.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=43941L",
+              "label": "Zoro search for 43941L",
+              "externalKey": "zoro-43941L",
+              "seedType": "search_results",
+              "catalogItemExternalId": "60ddb915-30b1-4a27-8461-08942dbe0099",
+              "searchTerm": "43941L"
+            },
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=20188N",
+              "label": "Zoro search for 20188N",
+              "externalKey": "zoro-20188N",
+              "seedType": "search_results",
+              "catalogItemExternalId": "32f29bcf-35f5-4b04-884f-e7976a6e46ec",
+              "searchTerm": "20188N"
+            },
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=900-5908-17",
+              "label": "Zoro search for 900-5908-17",
+              "externalKey": "zoro-900-5908-17",
+              "seedType": "search_results",
+              "catalogItemExternalId": "85892941-bc92-4117-8213-9ceb476f4899",
+              "searchTerm": "900-5908-17"
+            },
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=ELGIN%20SWEEPER%20CO%201045950",
+              "label": "Zoro manufacturer search for ELGIN SWEEPER CO 1045950",
+              "externalKey": "zoro-elgin-sweeper-1045950",
+              "seedType": "search_results",
+              "searchTerm": "ELGIN SWEEPER CO 1045950",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "mcmaster",
+          "sourceLabel": "McMaster-Carr",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "McMaster-Carr Supply Company",
+            "domain": "mcmaster.com",
+            "websiteUrl": "https://www.mcmaster.com",
+            "orgType": "distributor"
+          },
+          "notes": "Industrial catalog searches that the lightweight worker can usually reach without a challenge page.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/43941L/",
+              "label": "McMaster-Carr search for 43941L",
+              "externalKey": "mcmaster-43941L",
+              "seedType": "search_results",
+              "catalogItemExternalId": "60ddb915-30b1-4a27-8461-08942dbe0099",
+              "searchTerm": "43941L"
+            },
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/20188N/",
+              "label": "McMaster-Carr search for 20188N",
+              "externalKey": "mcmaster-20188N",
+              "seedType": "search_results",
+              "catalogItemExternalId": "32f29bcf-35f5-4b04-884f-e7976a6e46ec",
+              "searchTerm": "20188N"
+            },
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/1047327/",
+              "label": "McMaster-Carr search for 1047327",
+              "externalKey": "mcmaster-1047327",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a76b6891-cf88-4841-ab2c-52e066ebc856",
+              "searchTerm": "1047327"
+            },
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/vactor-mfg/",
+              "label": "McMaster-Carr manufacturer search for VACTOR MFG",
+              "externalKey": "mcmaster-vactor-mfg",
+              "seedType": "search_results",
+              "searchTerm": "VACTOR MFG",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "amazon",
+          "sourceLabel": "Amazon",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "Amazon.com, Inc.",
+            "domain": "amazon.com",
+            "websiteUrl": "https://www.amazon.com",
+            "orgType": "marketplace"
+          },
+          "notes": "Marketplace fallback for part-number and manufacturer-driven lookups.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=43941L",
+              "label": "Amazon search for 43941L",
+              "externalKey": "amazon-43941L",
+              "seedType": "search_results",
+              "catalogItemExternalId": "60ddb915-30b1-4a27-8461-08942dbe0099",
+              "searchTerm": "43941L"
+            },
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=20188N",
+              "label": "Amazon search for 20188N",
+              "externalKey": "amazon-20188N",
+              "seedType": "search_results",
+              "catalogItemExternalId": "32f29bcf-35f5-4b04-884f-e7976a6e46ec",
+              "searchTerm": "20188N"
+            },
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=1047327",
+              "label": "Amazon search for 1047327",
+              "externalKey": "amazon-1047327",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a76b6891-cf88-4841-ab2c-52e066ebc856",
+              "searchTerm": "1047327"
+            },
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=VACTOR+MFG+service+parts",
+              "label": "Amazon manufacturer search for VACTOR MFG",
+              "externalKey": "amazon-vactor-mfg-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "VACTOR MFG service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "ebay",
+          "sourceLabel": "eBay",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "eBay Inc.",
+            "domain": "ebay.com",
+            "websiteUrl": "https://www.ebay.com",
+            "orgType": "marketplace"
+          },
+          "notes": "Marketplace coverage for cross-checking aftermarket part offers.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=43941L",
+              "label": "eBay search for 43941L",
+              "externalKey": "ebay-43941L",
+              "seedType": "search_results",
+              "catalogItemExternalId": "60ddb915-30b1-4a27-8461-08942dbe0099",
+              "searchTerm": "43941L"
+            },
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=20188N",
+              "label": "eBay search for 20188N",
+              "externalKey": "ebay-20188N",
+              "seedType": "search_results",
+              "catalogItemExternalId": "32f29bcf-35f5-4b04-884f-e7976a6e46ec",
+              "searchTerm": "20188N"
+            },
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=1047327",
+              "label": "eBay search for 1047327",
+              "externalKey": "ebay-1047327",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a76b6891-cf88-4841-ab2c-52e066ebc856",
+              "searchTerm": "1047327"
+            },
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=VACTOR+MFG+service+parts",
+              "label": "eBay manufacturer search for VACTOR MFG",
+              "externalKey": "ebay-vactor-mfg-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "VACTOR MFG service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "msc",
+          "sourceLabel": "MSC Direct",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "MSC Industrial Supply Co.",
+            "domain": "mscdirect.com",
+            "websiteUrl": "https://www.mscdirect.com",
+            "orgType": "distributor"
+          },
+          "notes": "Industrial distributor checks that often surface interruption pages when blocked, which makes it a useful status canary.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/43941L",
+              "label": "MSC Direct search for 43941L",
+              "externalKey": "msc-43941L",
+              "seedType": "search_results",
+              "catalogItemExternalId": "60ddb915-30b1-4a27-8461-08942dbe0099",
+              "searchTerm": "43941L"
+            },
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/20188N",
+              "label": "MSC Direct search for 20188N",
+              "externalKey": "msc-20188N",
+              "seedType": "search_results",
+              "catalogItemExternalId": "32f29bcf-35f5-4b04-884f-e7976a6e46ec",
+              "searchTerm": "20188N"
+            },
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/1047327",
+              "label": "MSC Direct search for 1047327",
+              "externalKey": "msc-1047327",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a76b6891-cf88-4841-ab2c-52e066ebc856",
+              "searchTerm": "1047327"
+            },
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/VACTOR%20MFG%20service%20parts",
+              "label": "MSC Direct manufacturer search for VACTOR MFG",
+              "externalKey": "msc-vactor-mfg-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "VACTOR MFG service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalProjectId": "demo-aaaddbf7-refuse-recycling-service-parts",
+      "slug": "refuse-recycling-service-parts",
+      "name": "Refuse And Recycling Service Parts",
+      "description": "Refuse truck and recycling equipment parts carved from the local sample import.",
+      "customerName": "Municipal Fleet Demo",
+      "catalogSource": "/tmp/products-with-manufacturer.json",
+      "defaultCurrency": "USD",
+      "meta": {
+        "rawSourceProjectId": "aaaddbf7-d9b5-493d-994c-37280694dea8",
+        "vertical": "refuse-recycling"
+      },
+      "catalogItems": [
+        {
+          "externalItemId": "4ac98526-15c7-453b-a3df-99fcd2baf591",
+          "partNumber": "REL1426894",
+          "manufacturerCode": "WRR",
+          "manufacturerName": "WESTERN REFUSE AND RECYCLING",
+          "partDescription": "ZERO RADIUS STAR GEAR AS - SPROCKET",
+          "itemType": null
+        },
+        {
+          "externalItemId": "dc46e076-58f9-4d0c-8940-fe96688387c5",
+          "partNumber": "REL2121151",
+          "manufacturerCode": "CTM",
+          "manufacturerName": "COLEMAN TOOL",
+          "partDescription": "THRUST BEARING",
+          "itemType": null
+        },
+        {
+          "externalItemId": "b62f9c73-249c-4fb0-b38d-400d1170457f",
+          "partNumber": "QUR01300",
+          "manufacturerCode": "LAB",
+          "manufacturerName": "LABRIE GROUP",
+          "partDescription": "RR 0.500RFH 0.842X.125",
+          "itemType": null
+        },
+        {
+          "externalItemId": "a709de51-2408-4844-aac3-aa45b99bc43b",
+          "partNumber": "16271-11080",
+          "manufacturerCode": "AIE",
+          "manufacturerName": "ANDERSON INDUSTRIAL ENGINES",
+          "partDescription": "Inner Air Filter for V1505D",
+          "itemType": null
+        },
+        {
+          "externalItemId": "638a0e40-00d6-40bf-bacb-4ce32f7dd52f",
+          "partNumber": "HYP01496",
+          "manufacturerCode": "LAB",
+          "manufacturerName": "LABRIE GROUP",
+          "partDescription": "POMPE DEN DBL T6DC-35-28 CCW",
+          "itemType": null
+        },
+        {
+          "externalItemId": "eed1a888-871c-467b-9170-15549f9247f1",
+          "partNumber": "85286",
+          "manufacturerCode": "LAB",
+          "manufacturerName": "LABRIE GROUP",
+          "partDescription": "BOOM REST BRACKET",
+          "itemType": null
+        },
+        {
+          "externalItemId": "7b25fbb7-b443-4c12-bfbe-f21722182f8b",
+          "partNumber": "AWT6PMM",
+          "manufacturerCode": "HEI",
+          "manufacturerName": "HEIL ENVIRONMENTAL",
+          "partDescription": "TRANSFER CABLE-DIN VS. SCREW",
+          "itemType": null
+        },
+        {
+          "externalItemId": "adef1d5a-c2da-4679-adec-66bb2e8528c1",
+          "partNumber": "113-3502",
+          "manufacturerCode": "HEI",
+          "manufacturerName": "HEIL ENVIRONMENTAL",
+          "partDescription": "SCRAPER, PACKER - HP",
+          "itemType": null
+        },
+        {
+          "externalItemId": "c2ff8e26-b4e5-4271-98c5-f4d4c85d5333",
+          "partNumber": "175006",
+          "manufacturerCode": "LAB",
+          "manufacturerName": "LABRIE GROUP",
+          "partDescription": "RAIL SUPPORT",
+          "itemType": null
+        },
+        {
+          "externalItemId": "c0ada97b-aec8-4691-a36d-aa1ddac34054",
+          "partNumber": "183051",
+          "manufacturerCode": "LAB",
+          "manufacturerName": "LABRIE GROUP",
+          "partDescription": "PIN COVER",
+          "itemType": null
+        },
+        {
+          "externalItemId": "42a369ed-c73d-4af1-b7b7-24e9b2448927",
+          "partNumber": "ELB05012",
+          "manufacturerCode": "LAB",
+          "manufacturerName": "LABRIE GROUP",
+          "partDescription": "ACTUATR MLPTLX, PKR CTR",
+          "itemType": null
+        },
+        {
+          "externalItemId": "d622cb84-a283-4a4b-a25a-05fa2368d46a",
+          "partNumber": "4800-0056",
+          "manufacturerCode": "HEI",
+          "manufacturerName": "HEIL ENVIRONMENTAL",
+          "partDescription": "GRL ARM BELT",
+          "itemType": null
+        }
+      ],
+      "competitors": [
+        {
+          "sourceKey": "grainger",
+          "sourceLabel": "Grainger",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "W.W. Grainger, Inc.",
+            "domain": "grainger.com",
+            "websiteUrl": "https://www.grainger.com",
+            "orgType": "distributor"
+          },
+          "notes": "Exact-part and project-level distributor searches for refuse and recycling equipment parts.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=16271-11080",
+              "label": "Grainger search for 16271-11080",
+              "externalKey": "grainger-16271-11080",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a709de51-2408-4844-aac3-aa45b99bc43b",
+              "searchTerm": "16271-11080"
+            },
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=AWT6PMM",
+              "label": "Grainger search for AWT6PMM",
+              "externalKey": "grainger-awt6pmm",
+              "seedType": "search_results",
+              "catalogItemExternalId": "7b25fbb7-b443-4c12-bfbe-f21722182f8b",
+              "searchTerm": "AWT6PMM"
+            },
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=4800-0056",
+              "label": "Grainger search for 4800-0056",
+              "externalKey": "grainger-4800-0056",
+              "seedType": "search_results",
+              "catalogItemExternalId": "d622cb84-a283-4a4b-a25a-05fa2368d46a",
+              "searchTerm": "4800-0056"
+            },
+            {
+              "normalizedUrl": "https://www.grainger.com/search?searchQuery=LABRIE%20GROUP%20service%20parts",
+              "label": "Grainger manufacturer search for LABRIE GROUP",
+              "externalKey": "grainger-labrie-group-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "LABRIE GROUP service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "zoro",
+          "sourceLabel": "Zoro",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "Zoro Tools, Inc.",
+            "domain": "zoro.com",
+            "websiteUrl": "https://www.zoro.com",
+            "orgType": "distributor"
+          },
+          "notes": "Supplemental distributor seed set for refuse and recycling parts.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=16271-11080",
+              "label": "Zoro search for 16271-11080",
+              "externalKey": "zoro-16271-11080",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a709de51-2408-4844-aac3-aa45b99bc43b",
+              "searchTerm": "16271-11080"
+            },
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=REL2121151",
+              "label": "Zoro search for REL2121151",
+              "externalKey": "zoro-rel2121151",
+              "seedType": "search_results",
+              "catalogItemExternalId": "dc46e076-58f9-4d0c-8940-fe96688387c5",
+              "searchTerm": "REL2121151"
+            },
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=QUR01300",
+              "label": "Zoro search for QUR01300",
+              "externalKey": "zoro-qur01300",
+              "seedType": "search_results",
+              "catalogItemExternalId": "b62f9c73-249c-4fb0-b38d-400d1170457f",
+              "searchTerm": "QUR01300"
+            },
+            {
+              "normalizedUrl": "https://www.zoro.com/search?q=HEIL%20ENVIRONMENTAL%20113-3502",
+              "label": "Zoro manufacturer search for HEIL ENVIRONMENTAL 113-3502",
+              "externalKey": "zoro-heil-environmental-113-3502",
+              "seedType": "search_results",
+              "searchTerm": "HEIL ENVIRONMENTAL 113-3502",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "mcmaster",
+          "sourceLabel": "McMaster-Carr",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "McMaster-Carr Supply Company",
+            "domain": "mcmaster.com",
+            "websiteUrl": "https://www.mcmaster.com",
+            "orgType": "distributor"
+          },
+          "notes": "Catalog-style distributor searches for refuse and recycling part numbers.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/16271-11080/",
+              "label": "McMaster-Carr search for 16271-11080",
+              "externalKey": "mcmaster-16271-11080",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a709de51-2408-4844-aac3-aa45b99bc43b",
+              "searchTerm": "16271-11080"
+            },
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/AWT6PMM/",
+              "label": "McMaster-Carr search for AWT6PMM",
+              "externalKey": "mcmaster-awt6pmm",
+              "seedType": "search_results",
+              "catalogItemExternalId": "7b25fbb7-b443-4c12-bfbe-f21722182f8b",
+              "searchTerm": "AWT6PMM"
+            },
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/4800-0056/",
+              "label": "McMaster-Carr search for 4800-0056",
+              "externalKey": "mcmaster-4800-0056",
+              "seedType": "search_results",
+              "catalogItemExternalId": "d622cb84-a283-4a4b-a25a-05fa2368d46a",
+              "searchTerm": "4800-0056"
+            },
+            {
+              "normalizedUrl": "https://www.mcmaster.com/products/labrie-group/",
+              "label": "McMaster-Carr manufacturer search for LABRIE GROUP",
+              "externalKey": "mcmaster-labrie-group",
+              "seedType": "search_results",
+              "searchTerm": "LABRIE GROUP",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "amazon",
+          "sourceLabel": "Amazon",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "Amazon.com, Inc.",
+            "domain": "amazon.com",
+            "websiteUrl": "https://www.amazon.com",
+            "orgType": "marketplace"
+          },
+          "notes": "Marketplace fallback for refuse and recycling parts with cross-seller coverage.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=16271-11080",
+              "label": "Amazon search for 16271-11080",
+              "externalKey": "amazon-16271-11080",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a709de51-2408-4844-aac3-aa45b99bc43b",
+              "searchTerm": "16271-11080"
+            },
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=REL2121151",
+              "label": "Amazon search for REL2121151",
+              "externalKey": "amazon-rel2121151",
+              "seedType": "search_results",
+              "catalogItemExternalId": "dc46e076-58f9-4d0c-8940-fe96688387c5",
+              "searchTerm": "REL2121151"
+            },
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=QUR01300",
+              "label": "Amazon search for QUR01300",
+              "externalKey": "amazon-qur01300",
+              "seedType": "search_results",
+              "catalogItemExternalId": "b62f9c73-249c-4fb0-b38d-400d1170457f",
+              "searchTerm": "QUR01300"
+            },
+            {
+              "normalizedUrl": "https://www.amazon.com/s?k=LABRIE+GROUP+service+parts",
+              "label": "Amazon manufacturer search for LABRIE GROUP",
+              "externalKey": "amazon-labrie-group-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "LABRIE GROUP service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "ebay",
+          "sourceLabel": "eBay",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "eBay Inc.",
+            "domain": "ebay.com",
+            "websiteUrl": "https://www.ebay.com",
+            "orgType": "marketplace"
+          },
+          "notes": "Marketplace search coverage for aftermarket and used parts.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=16271-11080",
+              "label": "eBay search for 16271-11080",
+              "externalKey": "ebay-16271-11080",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a709de51-2408-4844-aac3-aa45b99bc43b",
+              "searchTerm": "16271-11080"
+            },
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=REL2121151",
+              "label": "eBay search for REL2121151",
+              "externalKey": "ebay-rel2121151",
+              "seedType": "search_results",
+              "catalogItemExternalId": "dc46e076-58f9-4d0c-8940-fe96688387c5",
+              "searchTerm": "REL2121151"
+            },
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=QUR01300",
+              "label": "eBay search for QUR01300",
+              "externalKey": "ebay-qur01300",
+              "seedType": "search_results",
+              "catalogItemExternalId": "b62f9c73-249c-4fb0-b38d-400d1170457f",
+              "searchTerm": "QUR01300"
+            },
+            {
+              "normalizedUrl": "https://www.ebay.com/sch/i.html?_nkw=LABRIE+GROUP+service+parts",
+              "label": "eBay manufacturer search for LABRIE GROUP",
+              "externalKey": "ebay-labrie-group-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "LABRIE GROUP service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        },
+        {
+          "sourceKey": "msc",
+          "sourceLabel": "MSC Direct",
+          "defaultTtlSeconds": 604800,
+          "organization": {
+            "name": "MSC Industrial Supply Co.",
+            "domain": "mscdirect.com",
+            "websiteUrl": "https://www.mscdirect.com",
+            "orgType": "distributor"
+          },
+          "notes": "Industrial distributor checks that help surface challenge-page behavior for these parts.",
+          "scrapeSeeds": [
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/16271-11080",
+              "label": "MSC Direct search for 16271-11080",
+              "externalKey": "msc-16271-11080",
+              "seedType": "search_results",
+              "catalogItemExternalId": "a709de51-2408-4844-aac3-aa45b99bc43b",
+              "searchTerm": "16271-11080"
+            },
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/REL2121151",
+              "label": "MSC Direct search for REL2121151",
+              "externalKey": "msc-rel2121151",
+              "seedType": "search_results",
+              "catalogItemExternalId": "dc46e076-58f9-4d0c-8940-fe96688387c5",
+              "searchTerm": "REL2121151"
+            },
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/QUR01300",
+              "label": "MSC Direct search for QUR01300",
+              "externalKey": "msc-qur01300",
+              "seedType": "search_results",
+              "catalogItemExternalId": "b62f9c73-249c-4fb0-b38d-400d1170457f",
+              "searchTerm": "QUR01300"
+            },
+            {
+              "normalizedUrl": "https://www.mscdirect.com/browse/tn/LABRIE%20GROUP%20service%20parts",
+              "label": "MSC Direct manufacturer search for LABRIE GROUP",
+              "externalKey": "msc-labrie-group-service-parts",
+              "seedType": "search_results",
+              "searchTerm": "LABRIE GROUP service parts",
+              "meta": {
+                "scope": "project"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

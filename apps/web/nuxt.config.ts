@@ -2,7 +2,8 @@ import { fileURLToPath } from 'node:url'
 import { resolve, dirname } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const localNuxtPort = Number(process.env.NUXT_PORT || 3000)
+const rawPort = process.env.NUXT_PORT || process.env.PORT || '3000'
+const localNuxtPort = Number(rawPort)
 const localSiteUrl = `http://localhost:${Number.isFinite(localNuxtPort) ? localNuxtPort : 3000}`
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -29,7 +30,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     /** Bearer token for scrape-agent workers (Authorization: Bearer …) */
-    scrapeAgentSecret: process.env.SCRAPE_AGENT_SECRET || '',
+    scrapeAgentSecret: process.env.SCRAPE_AGENT_SECRET || 'scrape-agent-secret',
     posthogOwnerDistinctId: process.env.POSTHOG_OWNER_DISTINCT_ID || '',
     // Server-only (admin API routes)
     googleServiceAccountKey: process.env.GSC_SERVICE_ACCOUNT_JSON || '',
@@ -51,8 +52,7 @@ export default defineNuxtConfig({
   site: {
     url: process.env.SITE_URL || localSiteUrl,
     name: 'Scrape',
-    description:
-      'Scrape — powered by Nuxt 4 and Cloudflare Workers.',
+    description: 'Scrape — powered by Nuxt 4 and Cloudflare Workers.',
     defaultLocale: 'en',
   },
 
@@ -69,5 +69,9 @@ export default defineNuxtConfig({
     cloudflare: {
       baseURL: process.env.SITE_URL || localSiteUrl,
     },
+  },
+
+  routeRules: {
+    '/': { redirect: '/scrape' },
   },
 })

@@ -529,7 +529,7 @@ function patchWebPackage(
           const expectedVerify =
             'node node_modules/@narduk-enterprises/narduk-nuxt-template-layer/testing/verify-local-db.mjs .'
           const expectedPredev = 'pnpm run db:ready'
-          const expectedDev = '(doppler run -- nuxt dev || nuxt dev)'
+          const expectedDev = '(doppler run --scope ../.. -- nuxt dev || nuxt dev)'
 
           if (pkg.scripts['db:migrate'] !== expectedMigrate) {
             pkg.scripts['db:migrate'] = expectedMigrate

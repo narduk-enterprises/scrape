@@ -1,5 +1,8 @@
 import { count, sql } from 'drizzle-orm'
 import {
+  piProjectCatalogItems,
+  piProjectScrapeTargets,
+  piProjects,
   scrapeAgents,
   scrapeObservations,
   scrapeRuns,
@@ -14,13 +17,17 @@ export default defineEventHandler(async (event) => {
 
   const db = useAppDatabase(event)
 
-  const [sources, targets, observations, runs, agents] = await Promise.all([
-    db.select({ n: count() }).from(scrapeSources).get(),
-    db.select({ n: count() }).from(scrapeTargets).get(),
-    db.select({ n: count() }).from(scrapeObservations).get(),
-    db.select({ n: count() }).from(scrapeRuns).get(),
-    db.select({ n: count() }).from(scrapeAgents).get(),
-  ])
+  const [sources, targets, observations, runs, agents, projects, catalogItems, projectSeeds] =
+    await Promise.all([
+      db.select({ n: count() }).from(scrapeSources).get(),
+      db.select({ n: count() }).from(scrapeTargets).get(),
+      db.select({ n: count() }).from(scrapeObservations).get(),
+      db.select({ n: count() }).from(scrapeRuns).get(),
+      db.select({ n: count() }).from(scrapeAgents).get(),
+      db.select({ n: count() }).from(piProjects).get(),
+      db.select({ n: count() }).from(piProjectCatalogItems).get(),
+      db.select({ n: count() }).from(piProjectScrapeTargets).get(),
+    ])
 
   const staleRow = await db.get<{ n: number }>(sql`
     SELECT COUNT(*) AS n
@@ -41,6 +48,9 @@ export default defineEventHandler(async (event) => {
       runs: Number(runs?.n ?? 0),
       agents: Number(agents?.n ?? 0),
       targetsNeedingWork: Number(staleRow?.n ?? 0),
+      projects: Number(projects?.n ?? 0),
+      catalogItems: Number(catalogItems?.n ?? 0),
+      projectSeeds: Number(projectSeeds?.n ?? 0),
     },
   }
 })

@@ -10,11 +10,11 @@ test.describe('web smoke', () => {
     await warmUpApp(browser, baseURL)
   })
 
-  test('home page renders the coming soon hero', async ({ page }) => {
+  test('home redirects to scrape ops dashboard', async ({ page }) => {
     await page.goto('/')
     await waitForHydration(page)
-    await expect(page.getByText('Coming Soon').first()).toBeVisible()
-    await expect(page.getByText('Something amazing is on the way').first()).toBeVisible()
-    await expect(page).toHaveTitle(/Coming Soon/)
+    await expect(page).toHaveURL(/\/scrape\/?$/)
+    await expect(page.getByText('Scrape operations').first()).toBeVisible()
+    await expect(page).toHaveTitle(/Scrape ops/)
   })
 })
