@@ -1,0 +1,28 @@
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "scrape",
+  "main": ".output/server/index.mjs",
+  "assets": {
+    "directory": ".output/public"
+  },
+  "compatibility_date": "2026-03-03",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "scrape-db",
+      "database_id": "f7c32efd-7b79-4d6a-a906-1ab155ff4dc1"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "scrape.nard.uk",
+      "custom_domain": true
+    }
+  ]
+}
