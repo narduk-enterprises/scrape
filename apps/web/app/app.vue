@@ -9,24 +9,26 @@ const navItems = [
 </script>
 
 <template>
-  <LayerAppShell>
-    <template #header>
-      <LayerAppHeader :app-name="appName" :nav-links="navItems" />
-    </template>
+  <UApp>
+    <LayerAppShell>
+      <template #header>
+        <LayerAppHeader :app-name="appName" :nav-links="navItems" />
+      </template>
 
-    <div
-      :class="[
-        'flex-1 w-full min-w-0',
-        route.meta.layout === 'landing' ? '' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8',
-      ]"
-    >
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-    </div>
+      <div
+        :class="[
+          'flex-1 w-full min-w-0',
+          route.meta.layout === 'landing' ? '' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8',
+        ]"
+      >
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </div>
 
-    <template #footer>
-      <LayerAppFooter :app-name="appName" />
-    </template>
-  </LayerAppShell>
+      <template #footer>
+        <LayerAppFooter :app-name="appName" />
+      </template>
+    </LayerAppShell>
+  </UApp>
 </template>
