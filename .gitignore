@@ -53,12 +53,8 @@ lint-results.txt
 __pycache__/
 *.pyc
 
-# User-global skills: per-agent symlinks to ~/.skills (pnpm run skills:link / sync-template)
+# Legacy local skills scratch dir
 .skills
-.cursor/skills
-.codex/skills
-.agent/skills
-.github/skills
 
 # Local audit snapshots
 artifacts/

@@ -7,7 +7,12 @@
  *   SCRAPE_AGENT_ID     — stable machine id (default: hostname)
  */
 import { hostname } from 'node:os'
-import { ingestBodySchema, type IngestBody } from '@narduk-enterprises/scrape-contract'
+import {
+  ingestBodySchema,
+  texasStageBatchBodySchema,
+  type IngestBody,
+  type TexasStageBatchBody,
+} from '@narduk-enterprises/scrape-contract'
 
 export interface WorkItem {
   targetId: string
@@ -26,6 +31,14 @@ export interface IngestResult {
   observationsDeduped: number
 }
 
+export interface TexasStageResult {
+  logId: string
+  inserted: number
+  failed: number
+  durationMs: number
+  status: string
+}
+
 export class ApiClient {
   readonly baseUrl: string
   readonly agentId: string
@@ -33,11 +46,20 @@ export class ApiClient {
   readonly version = '0.1.0'
   private readonly secret: string
 
-  constructor(opts: { baseUrl?: string; secret?: string; agentId?: string } = {}) {
+  constructor(
+    opts: { baseUrl?: string; secret?: string; agentId?: string; allowPlaceholderSecret?: boolean } = {},
+  ) {
     this.baseUrl = (opts.baseUrl ?? process.env.SCRAPE_API_BASE ?? 'http://localhost:3000').replace(/\/$/, '')
     const s = opts.secret ?? process.env.SCRAPE_AGENT_SECRET ?? ''
-    if (!s) throw new Error('SCRAPE_AGENT_SECRET is required')
-    this.secret = s
+    if (!s) {
+      if (opts.allowPlaceholderSecret) {
+        this.secret = '__texas_dry_run__'
+      } else {
+        throw new Error('SCRAPE_AGENT_SECRET is required')
+      }
+    } else {
+      this.secret = s
+    }
     this.agentId = opts.agentId ?? process.env.SCRAPE_AGENT_ID ?? hostname() ?? 'unknown-agent'
     this.agentHostname = hostname() ?? 'unknown'
   }
@@ -86,5 +108,20 @@ export class ApiClient {
     })
     if (!res.ok) throw new Error(`ingest ${res.status}: ${await res.text()}`)
     return (await res.json()) as IngestResult
+  }
+
+  async ingestTexasStage(body: TexasStageBatchBody): Promise<TexasStageResult> {
+    const parsed = texasStageBatchBodySchema.safeParse(body)
+    if (!parsed.success) {
+      const flat = parsed.error.flatten()
+      throw new Error(`Invalid texas-stage payload: ${JSON.stringify(flat)}`)
+    }
+    const res = await fetch(`${this.baseUrl}/api/scrape/agent/texas-stage`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify(parsed.data),
+    })
+    if (!res.ok) throw new Error(`texas-stage ${res.status}: ${await res.text()}`)
+    return (await res.json()) as TexasStageResult
   }
 }

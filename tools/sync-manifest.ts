@@ -4,12 +4,19 @@ import { basename, join } from 'node:path'
 export const VERBATIM_SYNC_FILES = [
   'doppler.template.yaml',
   '.githooks/pre-commit',
+  '.githooks/post-checkout',
+  '.githooks/post-merge',
+  '.agent/skills',
+  '.cursor/skills',
+  '.codex/skills',
+  '.claude/skills',
+  '.github/skills',
   'tools/install-git-hooks.cjs',
   'tools/command.ts',
   'tools/gsc-verify.ts',
   'tools/update-layer.ts',
   'tools/validate.ts',
-  'tools/guardrails.ts',
+
   'tools/check-guardrails.ts',
   'tools/sync-template.ts',
   'tools/sync-core.ts',
@@ -18,7 +25,6 @@ export const VERBATIM_SYNC_FILES = [
   'tools/check-drift-ci.ts',
   'tools/check-sync-health.ts',
   'tools/generate-favicons.ts',
-  'tools/init.ts',
   'tools/tail.ts',
   'tools/ship.ts',
   'tools/db-migrate.sh',
@@ -42,9 +48,10 @@ export const BOOTSTRAP_SYNC_FILES = ['guardrail-exceptions.json'] as const
 
 export const RECURSIVE_SYNC_DIRECTORIES = [
   'packages/eslint-config',
+  'tools/guardrails',
   '.agents/workflows',
-  // ui-ux-pro-max payload lives under `.template-reference/ui-ux-pro-max/`.
-  // Per-agent `*/skills` dirs are local symlinks to ~/.skills (see skills:link).
+  // `.agents/skills` is the canonical vendored skill tree.
+  // Per-agent `*/skills` entries are committed relative symlinks synced verbatim.
   '.agents',
   '.agent',
   '.codex',
@@ -57,7 +64,10 @@ export const STALE_SYNC_PATHS = [
   '.cursor/skills/home',
   '.codex/skills/home',
   '.agent/skills/home',
+  '.claude/skills/home',
   '.github/skills/home',
+  '.agents/skills/.git',
+  '.agents/skills/.DS_Store',
   '.github/workflows/publish-layer.yml',
   '.github/workflows/deploy-showcase.yml',
   '.github/workflows/deploy.yml',
@@ -80,7 +90,7 @@ export const GENERATED_SYNC_FILES = ['.github/workflows/ci.yml'] as const
 
 export const FLEET_ROOT_SCRIPT_PATCHES: Readonly<Record<string, string>> = {
   postinstall:
-    "node -e \"if(!require('fs').existsSync('.setup-complete'))console.log('\\n⚠️  Run pnpm run setup before doing anything else! See AGENTS.md.\\n')\"",
+    "node -e \"if(!require('fs').existsSync('.setup-complete'))console.log('\\n⚠️  New apps: provision via the control plane (see AGENTS.md). Generated starters get .setup-complete from provisioning.\\n')\"",
   dev: 'pnpm --filter web dev',
   'build:plugins': 'pnpm --filter @narduk/eslint-config build',
   prelint: 'pnpm run build:plugins',
@@ -89,7 +99,7 @@ export const FLEET_ROOT_SCRIPT_PATCHES: Readonly<Record<string, string>> = {
   preship:
     'node tools/check-setup.cjs && pnpm install --frozen-lockfile && pnpm exec tsx tools/check-drift-ci.ts && pnpm exec tsx tools/check-sync-health.ts && pnpm run quality:check',
   ship: 'pnpm exec tsx tools/ship.ts',
-  setup: 'pnpm exec tsx tools/init.ts',
+  setup: 'pnpm run skills:link',
   validate: 'pnpm exec tsx tools/validate.ts',
   'sync-template': 'pnpm exec tsx tools/sync-template.ts .',
   'skills:link': 'pnpm exec tsx tools/ensure-skills-links.ts',
@@ -116,7 +126,7 @@ export const FLEET_ROOT_SCRIPT_PATCHES: Readonly<Record<string, string>> = {
 
 export const FLEET_WEB_SCRIPT_PATCHES: Readonly<Record<string, string>> = {
   predev: 'pnpm run db:ready',
-  dev: '(doppler run --scope ../.. -- nuxt dev || nuxt dev)',
+  dev: '(doppler run -- nuxt dev || nuxt dev)',
   lint: 'eslint . --max-warnings 0',
   quality: "echo 'Turbo dependsOn handles lint + typecheck + format:check'",
 }

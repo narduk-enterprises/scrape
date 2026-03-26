@@ -13,10 +13,11 @@ design, and bulletproof pre-delivery validation into a single, relentless
 pipeline. When this workflow runs, the app should emerge looking like a $50M
 startup product.
 
-> **Prerequisite:** The template ships this skill under
-> `.template-reference/ui-ux-pro-max/`. Agent tools resolve it via `~/.skills`
-> after `pnpm run skills:link`. If it is missing in a downstream app, sync from
-> the template instead of bootstrapping a separate Antigravity-only install.
+> **Prerequisite:** The template ships this skill as repo content. Agents should
+> resolve it through `.agents/skills/ui-ux-pro-max` (or the corresponding
+> `*/skills` symlink) after `pnpm run skills:link`. If it is missing in a
+> downstream app, sync from the template instead of bootstrapping a separate
+> machine-local install.
 
 > **Your mandate:** You are the lead designer AND the lead engineer. Do not hold
 > back. Do not ask "should I add this?" — add it. Do not wonder "is this too

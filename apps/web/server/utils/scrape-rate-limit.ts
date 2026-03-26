@@ -12,6 +12,13 @@ export const SCRAPE_AGENT_INGEST_RATE_LIMIT: RateLimitPolicy = {
   windowMs: 60_000,
 }
 
+export const SCRAPE_AGENT_TEXAS_STAGE_RATE_LIMIT: RateLimitPolicy = {
+  namespace: 'scrape-agent-texas-stage',
+  /** Bulk loads issue many small batches (D1 bind limit); allow headroom. */
+  maxRequests: 5000,
+  windowMs: 60_000,
+}
+
 export const SCRAPE_ADMIN_ENQUEUE_RATE_LIMIT: RateLimitPolicy = {
   namespace: 'scrape-admin-enqueue',
   maxRequests: 40,

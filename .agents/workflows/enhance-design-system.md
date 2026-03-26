@@ -10,10 +10,11 @@ This workflow uses the `ui-ux-pro-max` skill to generate a comprehensive,
 project-specific design system. The design system provides curated styles, color
 palettes, typography, effects, and anti-patterns tailored to your app's domain.
 
-> **Prerequisite:** The template ships this skill under
-> `.template-reference/ui-ux-pro-max/`. Agent tools resolve it via `~/.skills`
-> after `pnpm run skills:link`. If it is missing in a downstream app, sync from
-> the template instead of bootstrapping a separate Antigravity-only install.
+> **Prerequisite:** The template ships this skill as repo content. Agents should
+> resolve it through `.agents/skills/ui-ux-pro-max` (or the corresponding
+> `*/skills` symlink) after `pnpm run skills:link`. If it is missing in a
+> downstream app, sync from the template instead of bootstrapping a separate
+> machine-local install.
 
 > **Related workflows:**
 >

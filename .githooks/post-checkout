@@ -1,0 +1,22 @@
+#!/bin/sh
+set -eu
+
+TARGET="../.agents/skills"
+
+if [ ! -d .agents/skills ] || [ -L .agents/skills ]; then
+  exit 0
+fi
+
+for root in .agent .cursor .codex .claude .github; do
+  mkdir -p "$root"
+
+  if [ -L "$root/skills" ] && [ "$(readlink "$root/skills")" = "$TARGET" ]; then
+    continue
+  fi
+
+  rm -rf "$root/skills" 2>/dev/null || true
+  (
+    cd "$root"
+    ln -s "$TARGET" skills
+  )
+done

@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "node -e \"if(!require('fs').existsSync('.setup-complete'))console.log('\\n⚠️  Run pnpm run setup before doing anything else! See AGENTS.md.\\n')\"",
     "predev": "node tools/check-setup.cjs",
-    "dev": "pnpm --filter web dev",
+    "dev": "doppler run -- pnpm --filter web dev",
     "prebuild": "node tools/check-setup.cjs",
     "build": "doppler run -- pnpm -r build",
     "build:plugins": "pnpm --filter @narduk/eslint-config build",

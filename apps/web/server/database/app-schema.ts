@@ -116,6 +116,9 @@ export const scrapeObservations = sqliteTable(
 // ── Price Intelligence canonical schema ──────────────────────
 export * from './pi-schema'
 
+// ── Texas transparency staging (Comptroller / Open Data) ─────
+export * from './texas-staging-schema'
+
 /** Optional work queue when you want explicit jobs instead of TTL-only polling */
 export const scrapeJobs = sqliteTable(
   'scrape_jobs',

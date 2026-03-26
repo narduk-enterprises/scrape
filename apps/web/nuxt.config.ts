@@ -70,8 +70,4 @@ export default defineNuxtConfig({
       baseURL: process.env.SITE_URL || localSiteUrl,
     },
   },
-
-  routeRules: {
-    '/': { redirect: '/scrape' },
-  },
 })

@@ -529,7 +529,7 @@ function patchWebPackage(
           const expectedVerify =
             'node node_modules/@narduk-enterprises/narduk-nuxt-template-layer/testing/verify-local-db.mjs .'
           const expectedPredev = 'pnpm run db:ready'
-          const expectedDev = '(doppler run --scope ../.. -- nuxt dev || nuxt dev)'
+          const expectedDev = '(doppler run -- nuxt dev || nuxt dev)'
 
           if (pkg.scripts['db:migrate'] !== expectedMigrate) {
             pkg.scripts['db:migrate'] = expectedMigrate
@@ -624,21 +624,30 @@ function patchGitignore(appDir: string, dryRun: boolean, log: (message: string) 
     }
   }
 
-  const skillsMarker =
-    '# User-global skills: per-agent symlinks to ~/.skills (pnpm run skills:link / sync-template)'
-  if (!content.includes(skillsMarker)) {
-    for (const legacy of [
-      '.cursor/skills/home',
-      '.codex/skills/home',
-      '.agent/skills/home',
-      '.github/skills/home',
-    ]) {
-      content = content.replace(new RegExp(`^${legacy.replace(/\//g, '\\/')}\\n`, 'gm'), '')
-    }
+  for (const legacy of [
+    '# User-global skills: per-agent symlinks to ~/.skills (pnpm run skills:link / sync-template)',
+    '.cursor/skills',
+    '.codex/skills',
+    '.agent/skills',
+    '.github/skills',
+    '.claude/skills',
+    '.cursor/skills/home',
+    '.codex/skills/home',
+    '.agent/skills/home',
+    '.github/skills/home',
+    '.claude/skills/home',
+  ]) {
+    content = content.replace(new RegExp(`^${legacy.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n`, 'gm'), '')
+  }
+
+  const skillsMarker = '# Legacy local skills scratch dir'
+  if (!content.includes('\n.skills\n') && !content.endsWith('\n.skills')) {
     if (!content.endsWith('\n')) {
       content += '\n'
     }
-    content += `\n${skillsMarker}\n.skills\n.cursor/skills\n.codex/skills\n.agent/skills\n.github/skills\n`
+    content += `\n${skillsMarker}\n.skills\n`
+  } else if (!content.includes(skillsMarker)) {
+    content = content.replace(/\n\.skills\n/g, `\n${skillsMarker}\n.skills\n`)
   }
 
   if (content === original) return false
@@ -905,7 +914,7 @@ export async function runAppSync(options: RunAppSyncOptions) {
 
   log('')
   log(
-    '  Skills: symlinking .cursor/.codex/.agent/.github skills/ → ~/.skills (after gitignore/stale cleanup)...',
+    '  Skills: repairing .agent/.cursor/.codex/.claude/.github symlinks → .agents/skills...',
   )
   ensureSkillsLinks(options.appDir, { dryRun, log })
 

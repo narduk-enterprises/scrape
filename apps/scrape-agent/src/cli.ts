@@ -29,6 +29,10 @@ Commands:
   work [limit]           GET /api/scrape/agent/work (default limit 25)
   scrape <url> [source]  scrape a single URL directly without polling the API
   ingest <file.json>     POST /api/scrape/agent/ingest (validated body)
+  texas run [datasets]   Texas Comptroller / Open Data → POST /api/scrape/agent/texas-stage
+                          datasets: payments county objects categories vendor cash all
+                          (default: all). Env: TEXAS_DRY_RUN=1, TEXAS_SNAPSHOT_DATE=YYYY-MM-DD,
+                          TEXAS_PAYMENTS_CSV_URL (use {fy}), TEXAS_COUNTY_RESOURCES_JSON, etc.
 
 Worker tunables (env, in seconds):
   SCRAPE_POLL_INTERVAL=10  SCRAPE_MAX_POLL_INTERVAL=120
@@ -101,6 +105,24 @@ async function main(): Promise<void> {
         defaultTtlSeconds: 0,
       })
       console.log(JSON.stringify(outcome, null, 2))
+      break
+    }
+
+    case 'texas': {
+      const sub = rest[0]
+      if (sub !== 'run') {
+        throw new Error('usage: scrape-agent texas run [datasets...]')
+      }
+      const { runTexasPipeline, parseTexasSelection } = await import('./texas/run.js')
+      const api = new ApiClient({
+        allowPlaceholderSecret: process.env.TEXAS_DRY_RUN === '1',
+      })
+      const snapshot =
+        process.env.TEXAS_SNAPSHOT_DATE ?? new Date().toISOString().slice(0, 10)
+      const sel = parseTexasSelection(rest.slice(1))
+      const t0 = Date.now()
+      await runTexasPipeline(api, sel, snapshot)
+      console.log(JSON.stringify({ ok: true, durationMs: Date.now() - t0, snapshot }, null, 2))
       break
     }
 
